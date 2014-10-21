@@ -1,0 +1,11 @@
+{
+    "esnext": true,
+    "strict": true,
+    "globals": {
+        "process": true,
+        "require": true,
+        "module": true,
+        "console": true,
+        "__dirname": true
+    }
+}

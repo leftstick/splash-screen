@@ -1,0 +1,26 @@
+{
+  "name": "splash-screen",
+  "version": "1.0.0",
+  "description": "Simple splash",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leftstick/splash-screen.git"
+  },
+  "keywords": [
+    "splash",
+    "css"
+  ],
+  "author": "Howard.Zuo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leftstick/splash-screen/issues"
+  },
+  "homepage": "https://github.com/leftstick/splash-screen",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-less": "^1.3.6",
+    "gulp-sourcemaps": "^1.2.4",
+    "gulp-webserver": "^0.8.3"
+  }
+}
