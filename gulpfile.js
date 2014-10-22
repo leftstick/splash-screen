@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 
-var less = function (dest, isProduction) {
+var less = function(dest, isProduction) {
     var gulp = require('gulp');
     var less = require('gulp-less');
     var prefix = require('gulp-autoprefixer');
@@ -10,7 +10,7 @@ var less = function (dest, isProduction) {
     return gulp.src('src/splash.less')
         .pipe(sourcemap.init())
         .pipe(less({
-            compress: true
+            compress: isProduction
         }))
         .pipe(sourcemap.write())
         .pipe(prefix({
@@ -20,16 +20,16 @@ var less = function (dest, isProduction) {
         .pipe(gulp.dest(dest));
 };
 
-gulp.task('lessdemo', function () {
+gulp.task('lessdemo', function() {
     return less('demo/', false);
 });
 
-gulp.task('copyDemo', function () {
+gulp.task('copyDemo', function() {
     return gulp.src('src/splash.js')
         .pipe(gulp.dest('demo/'));
 });
 
-gulp.task('demo', ['lessdemo', 'copyDemo'], function () {
+gulp.task('demo', ['lessdemo', 'copyDemo'], function() {
     var webserver = require('gulp-webserver');
     gulp.src('demo/')
         .pipe(webserver({

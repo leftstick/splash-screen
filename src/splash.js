@@ -6,7 +6,7 @@
  * @date   Sep 21th, 2014
  *
  **/
-(function (global, factory) {
+(function(global, factory) {
 
     'use strict';
 
@@ -15,25 +15,26 @@
     } else if (typeof define === 'function' && define.amd) {
         define([], factory);
     } else {
-        global['Splash'] = factory();
+        global.Splash = factory();
     }
 
-}(this, function () {
+}(this, function() {
+    'use strict';
 
     var Splash = {};
     Splash.version = '1.0.0';
 
-    var hasClass = function (ele, cls) {
+    var hasClass = function(ele, cls) {
         return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
     };
 
-    var addClass = function (ele, cls) {
+    var addClass = function(ele, cls) {
         if (!hasClass(ele, cls)) {
             ele.className += ' ' + cls;
         }
     };
 
-    var removeClass = function (ele, cls) {
+    var removeClass = function(ele, cls) {
         if (hasClass(ele, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
             ele.className = ele.className.replace(reg, ' ');
@@ -48,7 +49,7 @@
 
     var $splash;
 
-    var setSplash = function () {
+    var setSplash = function() {
         addClass($html, 'splash');
         var loadDiv = document.createElement('div');
         loadDiv.setAttribute('class', 'load');
@@ -70,8 +71,8 @@
         $body.appendChild($splash);
     };
 
-    var reloadBody = function () {
-        setTimeout(function () {
+    var reloadBody = function() {
+        setTimeout(function() {
             $body = document.body;
             if (!$body) {
                 reloadBody();
@@ -81,7 +82,7 @@
         }, 100);
     };
 
-    Splash.enable = function () {
+    Splash.enable = function() {
         $body = document.body;
         if (!$body) {
             reloadBody();
@@ -90,9 +91,9 @@
         setSplash();
     };
 
-    Splash.destroy = function () {
+    Splash.destroy = function() {
         removeClass($html, 'splash');
-        if ($splash) {
+        if ($body && $splash) {
             $body.removeChild($splash);
         }
     };
