@@ -1,2 +1,5 @@
 #npm
 node_modules/
+
+#bower
+demo/bower/

@@ -1,0 +1,28 @@
+{
+  "name": "splash-screen",
+  "version": "1.0.0",
+  "homepage": "https://github.com/leftstick/splash-screen",
+  "description": "Simple splash-screen",
+  "keywords": [
+    "splash",
+    "screen",
+    "javascript",
+    "css"
+  ],
+  "authors": [
+    "Howard.Zuo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "src"
+  ],
+  "devDependencies": {
+    "sweetalert": "~0.2.1"
+  }
+}
