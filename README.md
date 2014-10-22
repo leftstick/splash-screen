@@ -25,7 +25,7 @@ Splash.enable(); //launch the splash-screen while needed
 Splash.destroy();//destroy the splash-screen on demand
 ```
 
-
+See full featured demo: [splash-screen](http://leftstick.github.io/splash-screen/)
 
 ## LICENSE ##
 
