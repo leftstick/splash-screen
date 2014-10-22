@@ -1,0 +1,11 @@
+#npm
+node_modules/
+
+#bower
+bower/sweetalert/example/
+bower/sweetalert/.bower.json
+bower/sweetalert/.editorconfig
+bower/sweetalert/bower.json
+bower/sweetalert/LICENSE
+bower/sweetalert/README.md
+bower/sweetalert/sweetalert.gif
