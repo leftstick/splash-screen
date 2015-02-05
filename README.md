@@ -1,10 +1,8 @@
-# splash-screen ![](http://img.shields.io/badge/bower_module-v1.0.0-green.svg) #
+# splash-screen ![](http://img.shields.io/badge/bower_module-v2.0.0-green.svg) #
 =============
 
 A simple splash screen
 
-
-![](./doc/img/loading.gif)
 
 ## Install ##
 
@@ -21,6 +19,8 @@ bower install --save splash-screen
 
 ```javascript
 Splash.enable(); //launch the splash-screen while needed
+
+Splash.isRunning(); //detect if there is a splash running on the window
 
 Splash.destroy();//destroy the splash-screen on demand
 ```
