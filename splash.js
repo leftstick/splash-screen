@@ -3,7 +3,7 @@
  * application
  *
  * @author Howard.Zuo
- * @date   Sep 21th, 2014
+ * @date   Feb 5th, 2015
  *
  **/
 (function(global, factory) {
@@ -22,7 +22,38 @@
     'use strict';
 
     var Splash = {};
-    Splash.version = '1.0.0';
+    Splash.version = '2.0.0';
+
+    var splashDiv = function() {
+        var splash = document.createElement('div');
+        splash.setAttribute('class', 'splash');
+        return splash;
+    };
+
+    var tailingHandler = function($splash) {
+        var loading = document.createElement('span');
+        loading.innerText = 'Loading';
+        $splash.appendChild(loading);
+    };
+
+    var windcatcherHandler = function($splash) {
+        var windcatcher;
+        for (var i = 0; i < 8; i++) {
+            windcatcher = document.createElement('div');
+            windcatcher.setAttribute('class', 'blade');
+            $splash.appendChild(windcatcher);
+        }
+    };
+
+    var emptyHandler = function() {};
+
+    var themes = {
+        tailing: tailingHandler,
+        windcatcher: windcatcherHandler,
+        'audio-wave': emptyHandler,
+        'spinner-section': emptyHandler,
+        'spinner-section-far': emptyHandler
+    };
 
     var hasClass = function(ele, cls) {
         return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -41,61 +72,52 @@
         }
     };
 
-    var $html = document.getElementsByTagName('html')[0];
-    var $body;
-
-    var docWidth = document.documentElement.clientWidth;
-    var docHeight = document.documentElement.clientHeight;
-
-    var $splash;
-
-    var setSplash = function() {
-        addClass($html, 'splash');
-        var loadDiv = document.createElement('div');
-        loadDiv.setAttribute('class', 'load');
-        loadDiv.innerText = 'Loading';
-        var chargeDiv = document.createElement('div');
-        chargeDiv.setAttribute('class', 'charge');
-
-        var progressDiv = document.createElement('div');
-        progressDiv.setAttribute('class', 'progress');
-        progressDiv.appendChild(loadDiv);
-        progressDiv.appendChild(chargeDiv);
-        progressDiv.style.width = docWidth / 2 + 'px';
-        progressDiv.style.left = docWidth / 4 + 'px';
-
-        $splash = document.createElement('div');
-        $splash.setAttribute('class', 'splash-screen');
-        $splash.appendChild(progressDiv);
-
-        $body.appendChild($splash);
-    };
-
-    var reloadBody = function() {
+    var loadBody = function(callback) {
+        var $body = document.body;
+        if ($body) {
+            callback($body);
+            return;
+        }
         setTimeout(function() {
             $body = document.body;
             if (!$body) {
-                reloadBody();
+                loadBody(callback);
                 return;
             }
-            setSplash();
+            callback($body);
         }, 100);
     };
 
-    Splash.enable = function() {
-        $body = document.body;
-        if (!$body) {
-            reloadBody();
+    var $splash;
+
+    Splash.enable = function(theme) {
+        loadBody(function($body) {
+            addClass($body, 'splashing');
+            $splash = splashDiv();
+            $body.appendChild($splash);
+
+            if (!theme || !themes[theme]) {
+                theme = 'tailing';
+            }
+            themes[theme]($splash);
+            addClass($splash, theme);
+        });
+    };
+
+    Splash.isRunning = function() {
+        if (!document || !document.body) {
             return;
         }
-        setSplash();
+        return hasClass(document.body, 'splashing');
     };
 
     Splash.destroy = function() {
-        removeClass($html, 'splash');
-        if ($body && $splash) {
-            $body.removeChild($splash);
-        }
+        loadBody(function($body) {
+            removeClass($body, 'splashing');
+            if ($splash) {
+                $body.removeChild($splash);
+            }
+        });
     };
 
     return Splash;

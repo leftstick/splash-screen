@@ -1,0 +1,14 @@
+.icon-block{
+    padding: 5px 0;
+    background-color: #fff;
+    -webkit-transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    -ms-transition: background-color 0.5s;
+    transition: background-color 0.5s;
+}
+
+.icon-block:hover,
+.icon-block:active{
+    background-color: #eceff1;
+}
