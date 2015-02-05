@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "homepage": "https://github.com/leftstick/splash-screen",
   "description": "Simple splash-screen",
-   "main": [
+  "main": [
     "./splash.js",
     "./splash.min.js",
     "./splash.min.js.map",
@@ -30,6 +30,8 @@
     "gulpfile.js"
   ],
   "devDependencies": {
-    "sweetalert": "0.4.1"
+    "materialize": "0.95.1",
+    "jquery": "2.1.3",
+    "mobile-detect": "0.4.3"
   }
 }

@@ -104,6 +104,13 @@
         });
     };
 
+    Splash.isRunning = function() {
+        if (!document || !document.body) {
+            return;
+        }
+        return hasClass(document.body, 'splashing');
+    };
+
     Splash.destroy = function() {
         loadBody(function($body) {
             removeClass($body, 'splashing');
