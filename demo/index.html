@@ -15,7 +15,7 @@
     <script src="bower/sweetalert/lib/sweet-alert.min.js"></script>
     <script type="text/javascript" src="splash.js"></script>
     <script type="text/javascript">
-        Splash.enable();
+        Splash.enable('windcatcher');
         setTimeout(function() {
             Splash.destroy();
             swal({   
@@ -26,7 +26,7 @@
             }, function(){   
                 window.location.reload(true);
             });
-        }, 10000);
+        }, 50000);
     </script>
 </head>
 <body>

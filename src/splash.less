@@ -1,46 +1,204 @@
-@import "./variables";
+@white: #fff;
 
-html{
-    &.splash,
-    &.splash body{
-        min-width: 100%;
-        min-height: 100%;
-        width: 100%;
-        height: 100%;
-        background-color : @background-color;
-        padding: 0;
-        margin: 0;
-        .splash-screen{
-            height : 100%;
-            width : 100%;
-            top: 0;
-            left: 0;
-            position : absolute;
-            .progress {
-                height : 25px;
-                position : absolute;
-                top : 40%;
-                box-shadow : 0px 0px 10px #111111 inset;
-                .load{
-                    position : absolute;
-                    color : #000;
-                    width: 100%;
-                    text-align : center;
-                    font-size : 20px;
-                    font-weight: bold;
-                }
-                .charge {
-                    height : 100%;
-                    background-color : #C9F76F;
-                    animation : charge 7s infinite;
-                    box-shadow : 0px 0px 5px #222 inset;
-                }
+@audio-wave-color1: #fb7c4d;
+@audio-wave-color2: #fecb3d;
 
-                @keyframes charge {
-                  0% {width : 0px;}
-                  100% {width : 100%;}
-                }
+.splashing{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    .splash{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        margin: auto;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+
+        &.tailing{
+            border-radius: 50%;
+            box-shadow: 0 0 5px @white;
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: linear-gradient(#000, #dcdcdc);
+                animation: splash-spin 1.0s infinite linear;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 95%;
+                height: 95%;
+                top: 2.5%;
+                left: 2.5%;
+                background-color: @white;
+                border-radius: 50%;
+                box-shadow: inset 0 0 5px @white;
+            }
+
+            span{
+                position: absolute;
+                left: 25px;
+                top: 45px;
+                z-index: 100;
+            }
+
+        }
+
+        &.audio-wave {
+            width: 80px;
+            height: 60px;
+            top: 50%;
+            margin-top: -30px;
+            left: 50%;
+            margin-left: -40px;
+            background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+            background-repeat: no-repeat;
+            background-size: 19% 10px, 19% 10px, 19% 10px, 19% 10px, 19% 10px;
+            animation: splash-audio-wave-animation 1.5s linear infinite;
+        }
+
+        &.spinner-section,
+        &.spinner-section-far{
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            margin-left: -25px;
+            top: 50%;
+            margin-top: -25px;
+            border-radius: 50%;
+            border: 3.125px solid #aaa;
+            animation: splash-spinner 1.2s linear infinite;
+
+            &:before,
+            &:after{
+                content: '';
+                position: absolute;
+                top: -3.125px;
+                left: -3.125px;
+                display: block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 3.125px solid transparent;
+                border-top-color: tomato;
+            }
+
+            &:after {
+                border-top-color: transparent;
+                border-bottom-color: tomato;
             }
         }
+
+        &.spinner-section:after {
+          display: none;
+        }
+
+        &.spinner-section-far{
+            &:before,
+            &:after{
+                top: -9.375px;
+                left: -9.375px;
+                width: 62.5px;
+                height: 62.5px;
+            }
+            &:after{
+                display: none;
+            }
+        }
+
+
+        &.windcatcher {
+            width: 40px;
+            height: auto;
+            perspective: 500px;
+            animation: splash-rotate 4s linear infinite;
+
+            .blade {
+                height: 5px;
+                background-color: #0277bd;
+                margin-bottom: 1px;
+                animation: splash-windcatcherSpin 4s linear infinite, splash-windcatcherBg 2s linear infinite;
+
+                &:nth-child(1) { animation-delay: 0s; }
+                &:nth-child(2) { animation-delay: 0.25s; }
+                &:nth-child(3) { animation-delay: 0.5s; }
+                &:nth-child(4) { animation-delay: 0.75s; }
+                &:nth-child(5) { animation-delay: 1s; }
+                &:nth-child(6) { animation-delay: 1.25s; }
+                &:nth-child(7) { animation-delay: 1.5s; }
+                &:nth-child(8) { animation-delay: 1.75s; }
+
+            }
+        }
+
     }
+}
+
+@keyframes splash-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes splash-audio-wave-animation {
+  25% {
+    background: linear-gradient(@audio-wave-color2, @audio-wave-color2) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 50px, 19% 10px, 19% 10px, 19% 10px, 19% 10px;
+  }
+  37.5% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 50px, 19% 10px, 19% 10px, 19% 10px;
+  }
+  50% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 50px, 19% 10px, 19% 10px;
+  }
+  62.5% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 10px, 19% 50px, 19% 10px;
+  }
+  75% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 10px, 19% 10px, 19% 50px;
+  }
+}
+
+@keyframes splash-spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes splash-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes splash-windcatcherSpin {
+  from { transform: rotateY(0deg) rotateX(-20deg); }
+  to { transform: rotateY(360deg) rotateX(-20deg); }
+}
+
+@keyframes splash-windcatcherBg {
+  0% { background-color: #0277bd; }
+  50% { background-color: #01579b; }
+  51% { background-color: #40c4ff; }
+  70% { background-color: #039be5; }
+  100% { background-color: #0277bd; }
 }
