@@ -1,7 +1,7 @@
-# splash-screen ![](http://img.shields.io/badge/bower_module-v2.0.0-green.svg) #
+# splash-screen ![](http://img.shields.io/badge/bower_module-v2.1.0-green.svg) #
 =============
 
-A simple splash screen
+A splash screen is required from end-user's perspective while using SPA based application, cause that static resources usually concatenated into only one file in production release which might cost few seconds. A splash screen is better to describe the application is alive than just blank.
 
 
 ## Install ##
