@@ -5,21 +5,26 @@
  var less = function(dest, isProduction) {
      var gulp = require('gulp');
      var less = require('gulp-less');
-     var prefix = require('gulp-autoprefixer');
+     var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+     var LessPluginCleanCSS = require('less-plugin-clean-css');
+     var autoprefix = new LessPluginAutoPrefix({
+         browsers: ["last 5 versions"],
+         cascade: true
+     });
+     var cleancss = new LessPluginCleanCSS({
+         advanced: true
+     });
      var rename = require('gulp-rename');
-     var sourcemap = require('gulp-sourcemaps');
+     var plugins = [autoprefix];
+     if (isProduction) {
+         plugins.push(cleancss);
+     }
      return gulp.src('src/splash.less')
-         .pipe(sourcemap.init())
          .pipe(rename({
              basename: isProduction ? 'splash.min' : 'splash'
          }))
          .pipe(less({
-             compress: isProduction
-         }))
-         .pipe(sourcemap.write())
-         .pipe(prefix({
-             browsers: ['last 5 versions'],
-             cascade: true
+             plugins: plugins
          }))
          .pipe(gulp.dest(dest));
  };
@@ -57,17 +62,12 @@
 
  gulp.task('dist', ['lessDist', 'copyDist'], function() {
      var uglify = require('gulp-uglify');
-     var sourcemaps = require('gulp-sourcemaps');
      var rename = require('gulp-rename');
 
      return gulp.src('./src/splash.js')
-         .pipe(sourcemaps.init())
          .pipe(rename({
              basename: 'splash.min'
          }))
          .pipe(uglify())
-         .pipe(sourcemaps.write('./', {
-             sourceRoot: '.'
-         }))
          .pipe(gulp.dest('./'));
  });
