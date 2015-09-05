@@ -1,7 +1,9 @@
-# splash-screen ![](http://img.shields.io/badge/bower_module-v2.1.0-green.svg) #
+# splash-screen #
 =============
+[![NPM version][npm-image]][npm-url]
+![][david-url]
 
-A splash screen is required from end-user's perspective while developing SPA based application, cause that static resources usually concatenated into only one file in production release which might cost few seconds in loading phase. 
+A splash screen is required from end-user's perspective while developing SPA based application, cause that static resources usually concatenated into only one file in production release which might cost few seconds in loading phase.
 
 A splash screen is great to be loaded parallel with the application part. Once the application part loaded, `destroy` `splash-screen` and display the application.
 
@@ -39,3 +41,7 @@ See full featured demo: [splash-screen](http://leftstick.github.io/splash-screen
 ## LICENSE ##
 
 [MIT License](https://raw.githubusercontent.com/leftstick/splash-screen/master/LICENSE)
+
+[npm-url]: https://npmjs.org/package/splash-screen
+[npm-image]: https://badge.fury.io/js/splash-screen.png
+[david-url]: https://david-dm.org/leftstick/splash-screen.png

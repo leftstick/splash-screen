@@ -52,7 +52,12 @@
 
     var circularHandler = function($splash) {
 
-        var arr = ['spinner-blue', 'spinner-red', 'spinner-yellow', 'spinner-green'];
+        var arr = [
+            'spinner-blue',
+            'spinner-red',
+            'spinner-yellow',
+            'spinner-green'
+        ];
 
         for (var i = 0; i < arr.length; i++) {
             var layer = elementClass('div', 'spinner-layer ' + arr[i]);
@@ -152,6 +157,7 @@
             removeClass($body, 'splashing');
             if ($splash) {
                 $body.removeChild($splash);
+                $splash = undefined;
             }
         });
     };
