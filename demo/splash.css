@@ -18,7 +18,7 @@
 }
 .splashing .splash.tailing {
   border-radius: 50%;
-  box-shadow: 0 0 5px #ffffff;
+  box-shadow: 0 0 5px #fff;
 }
 .splashing .splash.tailing:before {
   content: "";
@@ -26,8 +26,8 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: -webkit-linear-gradient(#000000, #dcdcdc);
-  background: linear-gradient(#000000, #dcdcdc);
+  background: -webkit-linear-gradient(#000, #dcdcdc);
+  background: linear-gradient(#000, #dcdcdc);
   -webkit-animation: splash-spin 1s infinite linear;
           animation: splash-spin 1s infinite linear;
 }
@@ -38,9 +38,9 @@
   height: 95%;
   top: 2.5%;
   left: 2.5%;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 50%;
-  box-shadow: inset 0 0 5px #ffffff;
+  box-shadow: inset 0 0 5px #fff;
 }
 .splashing .splash.tailing span {
   position: absolute;

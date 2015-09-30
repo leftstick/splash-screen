@@ -3,7 +3,7 @@
  * application
  *
  * @author Howard.Zuo
- * @date   Feb 6th, 2015
+ * @date   Sep 30th, 2015
  *
  **/
 (function(global, factory) {
@@ -22,7 +22,7 @@
     'use strict';
 
     var Splash = {};
-    Splash.version = '2.1.0';
+    Splash.version = '2.2.2';
 
     var elementClass = function(tag, className) {
         var ele = document.createElement(tag);
@@ -129,12 +129,19 @@
         }, 100);
     };
 
-    var $splash;
+    var getSplash = function($body) {
+        var children = $body.children;
+        for (var i = 0; i < children.length; i++) {
+            if (hasClass(children[i], 'splash')) {
+                return children[i];
+            }
+        }
+    };
 
     Splash.enable = function(theme) {
         loadBody(function($body) {
             addClass($body, 'splashing');
-            $splash = splashDiv();
+            var $splash = splashDiv();
             $body.appendChild($splash);
 
             if (!theme || !themes[theme]) {
@@ -155,9 +162,9 @@
     Splash.destroy = function() {
         loadBody(function($body) {
             removeClass($body, 'splashing');
+            var $splash = getSplash($body);
             if ($splash) {
                 $body.removeChild($splash);
-                $splash = undefined;
             }
         });
     };

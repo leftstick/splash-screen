@@ -1,12 +1,11 @@
 {
   "name": "splash-screen",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "homepage": "https://github.com/leftstick/splash-screen",
   "description": "Simple splash-screen",
   "main": [
     "./splash.js",
     "./splash.min.js",
-    "./splash.min.js.map",
     "./splash.min.css"
   ],
   "keywords": [
