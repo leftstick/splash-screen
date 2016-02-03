@@ -1,7 +1,11 @@
 # splash-screen #
 =============
+![][bower-url]
 [![NPM version][npm-image]][npm-url]
 ![][david-url]
+![][travis-url]
+![][dt-url]
+![][license-url]
 
 A splash screen is required from end-user's perspective while developing SPA based application, cause that static resources usually concatenated into only one file in production release which might cost few seconds in loading phase.
 
@@ -10,10 +14,16 @@ A splash screen is great to be loaded parallel with the application part. Once t
 It is already used in http://www.hfworks.cn
 
 
-## Install ##
+## Install via bower ##
 
 ```powershell
 bower install --save splash-screen
+```
+
+## Install via npm ##
+
+```powershell
+npm install --save splash-screen
 ```
 
 ## Usage ##
@@ -42,6 +52,10 @@ See full featured demo: [splash-screen](http://leftstick.github.io/splash-screen
 
 [MIT License](https://raw.githubusercontent.com/leftstick/splash-screen/master/LICENSE)
 
+[bower-url]: https://img.shields.io/bower/v/splash-screen.svg
 [npm-url]: https://npmjs.org/package/splash-screen
 [npm-image]: https://badge.fury.io/js/splash-screen.png
 [david-url]: https://david-dm.org/leftstick/splash-screen.png
+[travis-url]:https://api.travis-ci.org/leftstick/splash-screen.svg?branch=master
+[dt-url]:https://img.shields.io/npm/dt/splash-screen.svg
+[license-url]:https://img.shields.io/npm/l/splash-screen.svg

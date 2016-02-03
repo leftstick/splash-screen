@@ -3,6 +3,7 @@
   "version": "2.2.2",
   "description": "Simple splash",
   "main": "./src/splash.js",
+  "typings": "./splash-screen.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/leftstick/splash-screen.git"
@@ -19,9 +20,9 @@
   "homepage": "https://github.com/leftstick/splash-screen",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-less": "^3.0.3",
+    "gulp-less": "^3.0.5",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.4.1",
+    "gulp-uglify": "^1.5.1",
     "gulp-webserver": "^0.9.1",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1"

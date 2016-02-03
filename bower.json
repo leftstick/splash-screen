@@ -6,8 +6,10 @@
   "main": [
     "./splash.js",
     "./splash.min.js",
-    "./splash.min.css"
+    "./splash.min.css",
+    "./splash-screen.d.ts"
   ],
+  "typings": "./splash-screen.d.ts",
   "keywords": [
     "splash",
     "screen",
