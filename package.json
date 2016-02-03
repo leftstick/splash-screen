@@ -1,6 +1,6 @@
 {
   "name": "splash-screen",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Simple splash",
   "main": "./src/splash.js",
   "typings": "./splash-screen.d.ts",
