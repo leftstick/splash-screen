@@ -1,7 +1,3 @@
-
-declare module "splash-screen" {
-    export default Splash;
-}
 declare var Splash: Splash;
 
 interface Splash {
@@ -14,3 +10,5 @@ interface Splash {
     destroy(): void;
 
 }
+
+export default Splash;
