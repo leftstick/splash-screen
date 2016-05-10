@@ -11,4 +11,4 @@ interface Splash {
 
 }
 
-export = Splash;
+export default Splash;
