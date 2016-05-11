@@ -1,35 +1,27 @@
 {
   "name": "splash-screen",
-  "version": "2.3.3",
+  "version": "3.0.0",
   "homepage": "https://github.com/leftstick/splash-screen",
   "description": "Simple splash-screen",
   "main": [
-    "./splash.js",
-    "./splash.min.js",
-    "./splash.min.css",
-    "./splash-screen.d.ts"
+    "dist/splash.d.ts",
+    "dist/splash.js",
+    "dist/splash.min.css",
+    "dist/splash.min.js",
+    "src/splash.ts",
+    "src/splash.less"
   ],
-  "typings": "./splash-screen.d.ts",
+  "typings": "dist/splash.d.ts",
   "keywords": [
     "splash",
     "screen",
-    "javascript",
+    "typescript",
     "css"
   ],
   "authors": [
     "Howard.Zuo"
   ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests",
-    "demo",
-    "src",
-    "gulpfile.js"
-  ],
   "devDependencies": {
     "materialize": "0.95.1",
     "jquery": "2.1.3",

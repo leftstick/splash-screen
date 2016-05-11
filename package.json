@@ -1,20 +1,20 @@
 {
   "name": "splash-screen",
-  "version": "2.3.4",
+  "version": "3.0.0",
   "description": "Simple splash",
-  "main": "./src/splash.js",
-  "typings": "./splash-screen.d.ts",
+  "main": "./dist/splash.js",
+  "typings": "./dist/splash.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/leftstick/splash-screen.git"
   },
   "files": [
-    "src/splash.js",
+    "src/splash.ts",
     "src/splash.less",
-    "splash-screen.d.ts",
-    "splash.js",
-    "splash.min.css",
-    "splash.min.js"
+    "dist/splash.d.ts",
+    "dist/splash.js",
+    "dist/splash.min.css",
+    "dist/splash.min.js"
   ],
   "keywords": [
     "splash",
@@ -30,9 +30,11 @@
     "gulp": "^3.9.1",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3",
     "gulp-webserver": "^0.9.1",
     "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "ts-loader": "0.8.0",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.0"
   }
 }

@@ -1,9 +1,9 @@
 'use strict';
 
 var gulp = require('gulp');
+var webpack = require('webpack');
 
 var less = function(dest, isProduction) {
-    var gulp = require('gulp');
     var less = require('gulp-less');
     var LessPluginAutoPrefix = require('less-plugin-autoprefix');
     var LessPluginCleanCSS = require('less-plugin-clean-css');
@@ -32,20 +32,32 @@ gulp.task('lessDemo', function() {
 });
 
 gulp.task('lessDist', function() {
-    return less('./', true);
+    return less('./dist', true);
 });
 
-gulp.task('copyDemo', function() {
-    return gulp.src('src/splash.js')
-        .pipe(gulp.dest('demo/'));
+var generateJS = function(config, cp) {
+    var compiler = webpack(config);
+    compiler.run(function(err, stats) {
+        if (err) {
+            return console.log(err);
+        }
+        cp();
+    });
+};
+
+gulp.task('devJs', function(cp) {
+    generateJS(require('./webpack.config.dev'), cp);
 });
 
-gulp.task('copyDist', function() {
-    return gulp.src('./src/splash.js')
-        .pipe(gulp.dest('./'));
+gulp.task('copyDistMin', function(cp) {
+    generateJS(require('./webpack.config.prod.min'), cp);
 });
 
-gulp.task('dev', ['lessDemo', 'copyDemo'], function() {
+gulp.task('copyDistNoMin', function(cp) {
+    generateJS(require('./webpack.config.prod.nomin'), cp);
+});
+
+gulp.task('dev', ['lessDemo', 'devJs'], function() {
     var webserver = require('gulp-webserver');
     gulp.src('demo/')
         .pipe(webserver({
@@ -58,12 +70,4 @@ gulp.task('dev', ['lessDemo', 'copyDemo'], function() {
 });
 
 
-gulp.task('dist', ['lessDist', 'copyDist'], function() {
-    var uglify = require('gulp-uglify');
-    var rename = require('gulp-rename');
-
-    return gulp.src('./src/splash.js')
-        .pipe(rename({basename: 'splash.min'}))
-        .pipe(uglify())
-        .pipe(gulp.dest('./'));
-});
+gulp.task('dist', ['lessDist', 'copyDistMin', 'copyDistNoMin']);

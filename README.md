@@ -27,10 +27,33 @@ npm install --save splash-screen
 
 ## Usage ##
 
+### Import CSS ###
+
 ```html
-<link rel="stylesheet" type="text/css" href="splash.min.css">
-<script type="text/javascript" src="splash.min.js"></script>
+<link rel="stylesheet" type="text/css" href="node_modules/splash-screen/dist/splash.min.css">
 ```
+
+**ES2015**
+
+```javascript
+import {Splash} from 'splash-screen';
+```
+
+**CommonJS**
+
+```javascript
+var Splash = require('splash-screen').Splash;
+```
+
+**Script**
+
+```html
+<script type="text/javascript" src="node_modules/splash-screen/dist/splash.min.js"></script>
+<script type="text/javascript">
+    var Splash = window.Splash;
+</script>
+```
+
 
 ```javascript
 Splash.enable('windcatcher'); //launch the splash-screen while needed
