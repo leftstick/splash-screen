@@ -6,7 +6,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'splash.js'
+        filename: 'splash.js',
+        libraryTarget: 'umd'
     },
     module: {
         loaders: [
