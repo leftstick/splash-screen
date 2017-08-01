@@ -1,5 +1,6 @@
 
 export async function prepare(): Promise<HTMLElement> {
+    await destorySplash();
     const $body = await waitForBody();
     addClassesToElement($body, 'splashing');
 
