@@ -1,0 +1,152 @@
+@import "../common/style";
+
+.splashing .splash.circular {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
+    margin-top: -32px;
+    animation: splash-container-rotate 1568ms linear infinite;
+
+    .spinner-layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+
+        &.spinner-blue {
+            border-color: #4285f4;
+            animation: splash-fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, splash-blue-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+        }
+
+        &.spinner-red {
+            border-color: #db4437;
+            animation: splash-fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, splash-red-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+        }
+
+        &.spinner-yellow {
+            border-color: #f4b400;
+            animation: splash-fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, splash-yellow-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+        }
+
+        &.spinner-green {
+            border-color: #0f9d58;
+            animation: splash-fill-unfill-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, splash-green-fade-in-out 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+        }
+
+        .circle-clipper {
+            display: inline-block;
+            position: relative;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            border-color: inherit;
+
+            .circle {
+                width: 200%;
+                box-sizing: border-box;
+                height: 100%;
+                border-width: 3px; /* STROKEWIDTH */
+                border-style: solid;
+                border-color: inherit;
+                border-bottom-color: transparent !important;
+                border-radius: 50%;
+                animation: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            &.left .circle {
+                left: 0;
+                border-right-color: transparent !important;
+                transform: rotate(129deg);
+                animation: splash-left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+            }
+            &.right .circle {
+                left: -100%;
+                border-left-color: transparent !important;
+                transform: rotate(-129deg);
+                animation: splash-right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+            }
+        }
+
+        .gap-patch {
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            left: 45%;
+            width: 10%;
+            height: 100%;
+            overflow: hidden;
+            border-color: inherit;
+
+            .circle {
+                width: 1000%;
+                left: -450%;
+            }
+        }
+
+    }
+}
+
+@keyframes splash-container-rotate {
+  to { transform: rotate(360deg) }
+}
+
+@keyframes splash-fill-unfill-rotate {
+  12.5% { transform: rotate(135deg);  } /* 0.5 * ARCSIZE */
+  25%   { transform: rotate(270deg);  } /* 1   * ARCSIZE */
+  37.5% { transform: rotate(405deg);  } /* 1.5 * ARCSIZE */
+  50%   { transform: rotate(540deg);  } /* 2   * ARCSIZE */
+  62.5% { transform: rotate(675deg);  } /* 2.5 * ARCSIZE */
+  75%   { transform: rotate(810deg);  } /* 3   * ARCSIZE */
+  87.5% { transform: rotate(945deg);  } /* 3.5 * ARCSIZE */
+  to    { transform: rotate(1080deg); } /* 4   * ARCSIZE */
+}
+
+@keyframes splash-blue-fade-in-out {
+  from { opacity: 1; }
+  25% { opacity: 1; }
+  26% { opacity: 0; }
+  89% { opacity: 0; }
+  90% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes splash-red-fade-in-out {
+  from { opacity: 0; }
+  15% { opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 1; }
+  51% { opacity: 0; }
+}
+
+@keyframes splash-yellow-fade-in-out {
+  from { opacity: 0; }
+  40% { opacity: 0; }
+  50% { opacity: 1; }
+  75% { opacity: 1; }
+  76% { opacity: 0; }
+}
+
+@keyframes splash-green-fade-in-out {
+  from { opacity: 0; }
+  65% { opacity: 0; }
+  75% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes splash-left-spin {
+  from { transform: rotate(130deg); }
+  50% { transform: rotate(-5deg); }
+  to { transform: rotate(130deg); }
+}
+
+@keyframes splash-right-spin {
+  from { transform: rotate(-130deg); }
+  50% { transform: rotate(5deg); }
+  to { transform: rotate(-130deg); }
+}

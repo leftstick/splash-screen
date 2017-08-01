@@ -1,0 +1,45 @@
+@import "../common/style";
+
+@audio-wave-color1: #fb7c4d;
+@audio-wave-color2: #fecb3d;
+
+.splashing .splash.audio-wave {
+    width: 80px;
+    height: 60px;
+    top: 50%;
+    margin-top: -30px;
+    left: 50%;
+    margin-left: -40px;
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 10px, 19% 10px, 19% 10px;
+    animation: splash-audio-wave-animation 1.5s linear infinite;
+}
+
+@keyframes splash-audio-wave-animation {
+  25% {
+    background: linear-gradient(@audio-wave-color2, @audio-wave-color2) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 50px, 19% 10px, 19% 10px, 19% 10px, 19% 10px;
+  }
+  37.5% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 50px, 19% 10px, 19% 10px, 19% 10px;
+  }
+  50% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 50px, 19% 10px, 19% 10px;
+  }
+  62.5% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 75% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 10px, 19% 50px, 19% 10px;
+  }
+  75% {
+    background: linear-gradient(@audio-wave-color1, @audio-wave-color1) 0 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 25% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 50% 50%, linear-gradient(@audio-wave-color1, @audio-wave-color1) 75% 50%, linear-gradient(@audio-wave-color2, @audio-wave-color2) 100% 50%;
+    background-repeat: no-repeat;
+    background-size: 19% 10px, 19% 10px, 19% 10px, 19% 10px, 19% 50px;
+  }
+}

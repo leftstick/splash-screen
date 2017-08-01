@@ -1,12 +1,5 @@
 #npm
 node_modules/
 
-#bower
-demo/splash.js
-demo/splash.css
-demo/bower/
-
-#typescript
-demo/Users/
-demo/splash.js.map
-demo/splash.d.ts
+#out
+dist/out/demo/

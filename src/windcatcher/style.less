@@ -1,0 +1,49 @@
+@import "../common/style";
+
+@white: #fff;
+
+.splashing .splash.windcatcher {
+    width: 40px;
+    height: auto;
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -50px;
+    perspective: 500px;
+    animation: splash-rotate 4s linear infinite;
+
+    .blade {
+        height: 5px;
+        background-color: #0277bd;
+        margin-bottom: 1px;
+        animation: splash-windcatcherSpin 4s linear infinite, splash-windcatcherBg 2s linear infinite;
+
+        &:nth-child(1) { animation-delay: 0s; }
+        &:nth-child(2) { animation-delay: 0.25s; }
+        &:nth-child(3) { animation-delay: 0.5s; }
+        &:nth-child(4) { animation-delay: 0.75s; }
+        &:nth-child(5) { animation-delay: 1s; }
+        &:nth-child(6) { animation-delay: 1.25s; }
+        &:nth-child(7) { animation-delay: 1.5s; }
+        &:nth-child(8) { animation-delay: 1.75s; }
+
+    }
+}
+
+@keyframes splash-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes splash-windcatcherSpin {
+  from { transform: rotateY(0deg) rotateX(-20deg); }
+  to { transform: rotateY(360deg) rotateX(-20deg); }
+}
+
+@keyframes splash-windcatcherBg {
+  0% { background-color: #0277bd; }
+  50% { background-color: #01579b; }
+  51% { background-color: #40c4ff; }
+  70% { background-color: #039be5; }
+  100% { background-color: #0277bd; }
+}

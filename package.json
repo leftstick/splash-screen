@@ -1,40 +1,45 @@
 {
   "name": "splash-screen",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Simple splash",
-  "main": "./dist/splash.js",
-  "typings": "./dist/splash.d.ts",
+  "main": "./dist/splash-screen.min.js",
+  "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/leftstick/splash-screen.git"
   },
+  "scripts": {
+    "start": "webpack-dev-server --inline --host 0.0.0.0 --port 8080",
+    "dist": "rm -rf ./dist && webpack --config webpack.config.prod.js && node copy.js"
+  },
   "files": [
-    "src/splash.ts",
-    "src/splash.less",
-    "dist/splash.d.ts",
-    "dist/splash.js",
-    "dist/splash.min.css",
-    "dist/splash.min.js"
+    "dist",
+    "types",
+    "src"
   ],
   "keywords": [
     "splash",
+    "screen",
+    "typescript",
     "css"
   ],
   "author": "Howard.Zuo",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/leftstick/splash-screen/issues"
   },
   "homepage": "https://github.com/leftstick/splash-screen",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-webserver": "^0.9.1",
-    "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-clean-css": "^1.5.1",
-    "ts-loader": "0.8.0",
-    "typescript": "^1.8.10",
-    "webpack": "^1.13.0"
+    "amazeui": "^2.7.2",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
   }
 }
