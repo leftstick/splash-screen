@@ -3,6 +3,7 @@ node_modules/
 
 #demo
 demo/
+out/
 
 #osx
 .DS_Store
