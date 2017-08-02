@@ -195,9 +195,136 @@
                     </div>
                 </div>
 
-
             </div>
         </section>
+
+        <hr>
+
+        <h1 class="title">Version</h1>
+
+        <h3 class="subtitle">
+            There are 4 major versions available, and each of them is not backwards compatible. 
+            Which means you should not writing codes at version 1's instruction, 
+            but with version 2 installed. Below are documentation references for previous version:
+        </h3>
+
+        <ul>
+            <li style="list-style-type: initial;"><a href="">version < 4</a></li>
+        </ul>
+
+        <hr>
+
+        <h1 class="title">Install</h1>
+
+        <h3 class="title is-5">npm</h3>
+
+        <pre><code class="bash">npm install splash-screen</code></pre>
+
+        <br/>
+
+        <h3 class="title is-5">bower</h3>
+
+        <pre><code class="bash">bower install splash-screen</code></pre>
+
+        <hr>
+
+        <h1 class="title">Usage</h1>
+
+        <h3 class="title is-5">Typescript</h3>
+
+        <pre><code class="typescript">//import all-in-one-bundle
+//import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
+import { enable, destory } from 'splash-screen';
+//enable with a specific theme.
+//Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+enable('tailing');
+//destory the splash
+destory();
+</code></pre>
+
+<br>
+
+        <pre><code class="typescript">//import specific bundle
+//import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
+import { enable, destory } from 'splash-screen/dist/splash-screen-[theme]';
+//enable with no arg
+enable();
+//destory the splash
+destory();
+</code></pre>
+
+        <br/>
+
+        <h3 class="title is-5">ES2015</h3>
+
+        <p>Same as above</p>
+
+        <br/>
+
+        <h3 class="title is-5">CommonJS</h3>
+
+        <pre><code class="javascript">//import all-in-one-bundle
+//import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
+const {enable, destory} = require('splash-screen');
+//enable with a specific theme.
+//Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+enable('tailing');
+//destory the splash
+destory();
+</code></pre>
+
+<br/>
+
+        <pre><code class="javascript">//import specific bundle
+//import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
+const {enable, destory} = require('splash-screen/dist/splash-screen-[theme]');
+//enable with no arg.
+enable();
+//destory the splash
+destory();
+</code></pre>
+
+        <br/>
+
+        <h3 class="title is-5">Script</h3>
+
+        <pre><code class="html">&lt;!-- import all-in-one-bundle --&gt;
+&lt;link rel="stylesheet" href="node_modules/splash-screen/dist/splash-screen.min.css"&gt;
+&lt;script src="node_modules/splash-screen/dist/splash-screen.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    const splash = window['splash-screen'];
+    //enable with a specific theme.
+    //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+    splash.enable('tailing');
+    //destory the splash
+    splash.destory();
+&lt;/script&gt;
+</code></pre>
+
+<br/>
+
+        <pre><code class="html">&lt;!-- import specific bundle --&gt;
+&lt;link rel="stylesheet" href="node_modules/splash-screen/dist/splash-screen-[theme].min.css"&gt;
+&lt;script src="node_modules/splash-screen/dist/splash-screen-[theme].min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    const theme = window['splash-screen-[theme]'];
+    //enable with no arg.
+    theme.enable();
+    //destory the splash
+    theme.destory();
+&lt;/script&gt;
+</code></pre>
+
+    </div>
+
+    <br/>
+
+    <div class="columns is-centered">
+      <div class="column is-narrow">
+        <h1 class="title has-text-info">Hope you enjoy!</h1>
+      </div>
     </div>
 </body>
 </html>

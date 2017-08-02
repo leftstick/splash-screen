@@ -1,10 +1,13 @@
 import 'bulma/css/bulma.css';
 import '../../dist/splash-screen.min.css';
+import 'highlight.js/styles/darcula.css';
+import * as hljs from 'highlight.js';
+import { enable, destory, THEME } from '../../';
+
 
 import '../less/style.less';
 
-import { enable, destory, THEME } from '../../';
-
+hljs.initHighlightingOnLoad();
 
 const $demoEL = document.querySelector('.demo-area');
 

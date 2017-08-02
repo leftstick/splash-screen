@@ -3,3 +3,6 @@ node_modules/
 
 #out
 dist/out/demo/
+
+#osc
+.DS_Store

@@ -8,13 +8,13 @@ module.exports = function() {
 
     return {
         entry: {
-            'splash-screen.min.js': resolve(__dirname, 'src', 'index.ts'),
-            'splash-screen-tailing.min.js': resolve(__dirname, 'src', 'tailing', 'index.ts'),
-            'splash-screen-audio-wave.min.js': resolve(__dirname, 'src', 'audio-wave', 'index.ts'),
-            'splash-screen-windcatcher.min.js': resolve(__dirname, 'src', 'windcatcher', 'index.ts'),
-            'splash-screen-spinner-section.min.js': resolve(__dirname, 'src', 'spinner-section', 'index.ts'),
-            'splash-screen-spinner-section-far.min.js': resolve(__dirname, 'src', 'spinner-section-far', 'index.ts'),
-            'splash-screen-circular.min.js': resolve(__dirname, 'src', 'circular', 'index.ts'),
+            'splash-screen': resolve(__dirname, 'src', 'index.ts'),
+            'splash-screen-tailing': resolve(__dirname, 'src', 'tailing', 'index.ts'),
+            'splash-screen-audio-wave': resolve(__dirname, 'src', 'audio-wave', 'index.ts'),
+            'splash-screen-windcatcher': resolve(__dirname, 'src', 'windcatcher', 'index.ts'),
+            'splash-screen-spinner-section': resolve(__dirname, 'src', 'spinner-section', 'index.ts'),
+            'splash-screen-spinner-section-far': resolve(__dirname, 'src', 'spinner-section-far', 'index.ts'),
+            'splash-screen-circular': resolve(__dirname, 'src', 'circular', 'index.ts'),
 
             'splash-screen.min.css': resolve(__dirname, 'src', 'index.less'),
             'splash-screen-tailing.min.css': resolve(__dirname, 'src', 'tailing', 'style.less'),
@@ -26,8 +26,11 @@ module.exports = function() {
         },
         output: {
             path: join(__dirname, 'dist'),
-            filename: '[name]',
-            libraryTarget: 'umd'
+            filename: '[name].min.js',
+            libraryTarget: 'umd',
+            library: {
+                root: '[name]'
+            },
         },
         module: {
             rules: [
