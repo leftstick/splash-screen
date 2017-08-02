@@ -30,11 +30,24 @@ module.exports = function(env = {}) {
             rules: [
                 {
                     test: /\.css$/,
-                    use: vendorCSS.extract(['css-loader'])
+                    use: vendorCSS.extract([{
+                        loader: 'css-loader',
+                        options: {
+                            minimize: isDemo
+                        }
+                    }])
                 },
                 {
                     test: /\.less$/,
-                    use: appCSS.extract(['css-loader', 'less-loader'])
+                    use: appCSS.extract([
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: isDemo
+                            }
+                        },
+                        'less-loader'
+                    ])
                 },
                 {
                     test: /\.ts$/,

@@ -2,7 +2,7 @@
 node_modules/
 
 #out
-dist/out/demo/
+out/
 
 #osc
 .DS_Store
