@@ -42,9 +42,11 @@ npm install splash-screen
 //import all-in-one-bundle
 //import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
 import { enable, destory } from 'splash-screen';
+
 //enable with a specific theme.
 //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
 enable('tailing');
+
 //destory the splash
 destory();
 ```
@@ -53,8 +55,10 @@ destory();
 //import specific bundle
 //import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
 import { enable, destory } from 'splash-screen/dist/splash-screen-[theme]';
+
 //enable with no arg
 enable();
+
 //destory the splash
 destory();
 ```
@@ -69,6 +73,7 @@ Same as above
 //import all-in-one-bundle
 //import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
 const {enable, destory} = require('splash-screen');
+
 //enable with a specific theme.
 //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
 enable('tailing');
@@ -81,6 +86,7 @@ destory();
 //import specific bundle
 //import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
 const {enable, destory} = require('splash-screen/dist/splash-screen-[theme]');
+
 //enable with no arg.
 enable();
 
@@ -97,9 +103,11 @@ destory();
 
 <script>
     const splash = window['splash-screen'];
+
     //enable with a specific theme.
     //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
     splash.enable('tailing');
+
     //destory the splash
     splash.destory();
 </script>
@@ -112,8 +120,10 @@ destory();
 
 <script>
     const theme = window['splash-screen-[theme]'];
+
     //enable with no arg.
     theme.enable();
+    
     //destory the splash
     theme.destory();
 </script>
