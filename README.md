@@ -1,4 +1,4 @@
-# splash-screen #
+splash-screen
 =============
 ![][bower-url]
 [![NPM version][npm-image]][npm-url]
@@ -10,19 +10,18 @@ A splash screen is required from end-user's perspective while developing SPA bas
 
 A splash screen is great to be loaded parallel with the application part. Once the application part loaded, `destroy` `splash-screen` and display the application.
 
-It is already used in http://www.hfworks.cn
+## Install ##
 
-
-## Install via bower ##
+**bower**
 
 ```powershell
 bower install --save splash-screen
 ```
 
-## Install via npm ##
+**npm**
 
 ```powershell
-npm install --save splash-screen
+npm install splash-screen
 ```
 
 ## Usage ##
@@ -30,37 +29,94 @@ npm install --save splash-screen
 ### Import CSS ###
 
 ```html
-<link rel="stylesheet" type="text/css" href="node_modules/splash-screen/dist/splash.min.css">
+<!-- all-in-one-css -->
+<link rel="stylesheet" type="text/css" href="node_modules/splash-screen/dist/splash-screen.min.css">
+
+<!-- specific-theme-css -->
+<link rel="stylesheet" type="text/css" href="node_modules/splash-screen/dist/splash-screen-[theme].min.css">
+```
+
+**Typescript**
+
+```typescript
+//import all-in-one-bundle
+//import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
+import { enable, destory } from 'splash-screen';
+//enable with a specific theme.
+//Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+enable('tailing');
+//destory the splash
+destory();
+```
+
+```typescript
+//import specific bundle
+//import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
+import { enable, destory } from 'splash-screen/dist/splash-screen-[theme]';
+//enable with no arg
+enable();
+//destory the splash
+destory();
 ```
 
 **ES2015**
 
-```javascript
-import {Splash} from 'splash-screen';
-```
+Same as above
 
 **CommonJS**
 
 ```javascript
-var Splash = require('splash-screen').Splash;
+//import all-in-one-bundle
+//import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
+const {enable, destory} = require('splash-screen');
+//enable with a specific theme.
+//Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+enable('tailing');
+
+//destory the splash
+destory();
+```
+
+```javascript
+//import specific bundle
+//import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
+const {enable, destory} = require('splash-screen/dist/splash-screen-[theme]');
+//enable with no arg.
+enable();
+
+//destory the splash
+destory();
 ```
 
 **Script**
 
 ```html
-<script type="text/javascript" src="node_modules/splash-screen/dist/splash.min.js"></script>
-<script type="text/javascript">
-    var Splash = window.Splash;
+<!-- import all-in-one-bundle -->
+<link rel="stylesheet" href="node_modules/splash-screen/dist/splash-screen.min.css">
+<script src="node_modules/splash-screen/dist/splash-screen.min.js"></script>
+
+<script>
+    const splash = window['splash-screen'];
+    //enable with a specific theme.
+    //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
+    splash.enable('tailing');
+    //destory the splash
+    splash.destory();
 </script>
 ```
 
+```html
+<!-- import specific bundle -->
+<link rel="stylesheet" href="node_modules/splash-screen/dist/splash-screen-[theme].min.css">
+<script src="node_modules/splash-screen/dist/splash-screen-[theme].min.js"></script>
 
-```javascript
-Splash.enable('windcatcher'); //launch the splash-screen while needed
-
-Splash.isRunning(); //detect if there is a splash running on the window
-
-Splash.destroy();//destroy the splash-screen on demand
+<script>
+    const theme = window['splash-screen-[theme]'];
+    //enable with no arg.
+    theme.enable();
+    //destory the splash
+    theme.destory();
+</script>
 ```
 
 ## Themes ##
@@ -68,7 +124,7 @@ Splash.destroy();//destroy the splash-screen on demand
 Multiple themes can be used while enable splash. Available themes: `tailing`, `windcatcher`, `audio-wave`, `spinner-section`, `spinner-section-far`, `circular`.
 
 
-See full featured demo: [splash-screen](http://leftstick.github.io/splash-screen/)
+You would like to see real demo: [splash-screen](http://leftstick.github.io/splash-screen/)
 
 ## LICENSE ##
 

@@ -5,9 +5,20 @@
   "description": "Simple splash-screen",
   "main": [
     "src/index.ts",
-    "src/index.less"
+    "src/index.less",
+    "src/audio-wave/index.ts",
+    "src/audio-wave/style.less",
+    "src/circular/index.ts",
+    "src/circular/style.less",
+    "src/spinner-section/index.ts",
+    "src/spinner-section/style.less",
+    "src/spinner-section-far/index.ts",
+    "src/spinner-section-far/style.less",
+    "src/tailing/index.ts",
+    "src/tailing/style.less",
+    "src/windcatcher/index.ts",
+    "src/windcatcher/style.less"
   ],
-  "types": "dist/splash.d.ts",
   "keywords": [
     "splash",
     "screen",
@@ -17,6 +28,7 @@
   "ignore": [
     "demo",
     "tsconfig.json",
+    "tsconfig.prod.json",
     "webpack.config.js",
     "webpack.config.prod.js"
   ],
