@@ -11,7 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --host 0.0.0.0 --port 8080",
     "dist": "rm -rf ./dist && webpack --config webpack.config.prod.js && node copy.js",
-    "deploy": "rm -rf ./out && webpack --env.isDemo"
+    "deploy": "rm -rf ./out && webpack --env.isDemo && git checkout gh-pages && rm -rf *.* && mv out/* ."
   },
   "files": [
     "dist",
