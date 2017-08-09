@@ -1,6 +1,6 @@
 
 export async function prepare(): Promise<HTMLElement> {
-    await destorySplash();
+    await destroySplash();
     const $body = await waitForBody();
     addClassesToElement($body, 'splashing');
 
@@ -9,7 +9,7 @@ export async function prepare(): Promise<HTMLElement> {
     return $splash;
 }
 
-export async function destorySplash(): Promise<void> {
+export async function destroySplash(): Promise<void> {
     const $body = await waitForBody();
     removeClassesToElement($body, 'splashing');
     const $splash = $body.querySelector('div.splash');

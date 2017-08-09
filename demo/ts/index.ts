@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import '../../dist/splash-screen.min.css';
 import 'highlight.js/styles/darcula.css';
 import * as hljs from 'highlight.js';
-import { enable, destory, THEME } from '../../';
+import { enable, destroy, THEME } from '../../';
 
 
 import '../less/style.less';
@@ -22,7 +22,7 @@ $demoEL.addEventListener('click', (e: MouseEvent) => {
     if (isEnable) {
         return enable(theme as THEME);
     }
-    destory();
+    destroy();
 
 }, false);
 

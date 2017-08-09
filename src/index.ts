@@ -1,4 +1,4 @@
-import { destorySplash } from './common/dom';
+import { destroySplash } from './common/dom';
 import { enable as tailing } from './tailing';
 import { enable as audioWave } from './audio-wave';
 import { enable as windcatcher } from './windcatcher';
@@ -33,8 +33,8 @@ export function enable(theme: THEME): Promise<void> {
     return Promise.reject(new Error('Unknown theme'));
 }
 
-export function destory(): Promise<void> {
-    return destorySplash();
+export function destroy(): Promise<void> {
+    return destroySplash();
 }
 
 export type THEME = 'tailing' | 'audio-wave' | 'windcatcher' | 'spinner-section' | 'spinner-section-far' | 'circular';
