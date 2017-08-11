@@ -41,26 +41,26 @@ npm install splash-screen
 ```typescript
 //import all-in-one-bundle
 //import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
-import { enable, destory } from 'splash-screen';
+import { enable, destroy } from 'splash-screen';
 
 //enable with a specific theme.
 //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
 enable('tailing');
 
-//destory the splash
-destory();
+//destroy the splash
+destroy();
 ```
 
 ```typescript
 //import specific bundle
 //import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
-import { enable, destory } from 'splash-screen/dist/splash-screen-[theme]';
+import { enable, destroy } from 'splash-screen/dist/splash-screen-[theme]';
 
 //enable with no arg
 enable();
 
-//destory the splash
-destory();
+//destroy the splash
+destroy();
 ```
 
 **ES2015**
@@ -72,26 +72,26 @@ Same as above
 ```javascript
 //import all-in-one-bundle
 //import splash-screen/dist/splash-screen.min.css here if you are using webpack, or inject it in your html
-const {enable, destory} = require('splash-screen');
+const {enable, destroy} = require('splash-screen');
 
 //enable with a specific theme.
 //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
 enable('tailing');
 
-//destory the splash
-destory();
+//destroy the splash
+destroy();
 ```
 
 ```javascript
 //import specific bundle
 //import splash-screen/dist/splash-screen-[theme].min.css here if you are using webpack, or inject it in your html
-const {enable, destory} = require('splash-screen/dist/splash-screen-[theme]');
+const {enable, destroy} = require('splash-screen/dist/splash-screen-[theme]');
 
 //enable with no arg.
 enable();
 
-//destory the splash
-destory();
+//destroy the splash
+destroy();
 ```
 
 **Script**
@@ -108,8 +108,8 @@ destory();
     //Possible themes are: 'tailing', 'audio-wave', 'windcatcher', 'spinner-section', 'spinner-section-far', 'circular'.
     splash.enable('tailing');
 
-    //destory the splash
-    splash.destory();
+    //destroy the splash
+    splash.destroy();
 </script>
 ```
 
@@ -124,8 +124,8 @@ destory();
     //enable with no arg.
     theme.enable();
     
-    //destory the splash
-    theme.destory();
+    //destroy the splash
+    theme.destroy();
 </script>
 ```
 
